@@ -5,8 +5,6 @@ tags:
 
 The purpose of this post is to help you make sure all of HTML elements can display properly. If you use CSS reset, don't forget to redefine the style by yourself.
 
----
-
 # Heading 1
 
 ## Heading 2
@@ -18,8 +16,6 @@ The purpose of this post is to help you make sure all of HTML elements can displ
 ##### Heading 5
 
 ###### Heading 6
-
----
 
 ## Paragraph
 
@@ -33,10 +29,6 @@ Maecenas ornare arcu at mi suscipit, non molestie tortor ultrices. Aenean conval
 
 ## List Types
 
-### Definition List (dl)
-
-<dl><dt>Definition List Title</dt><dd>This is a definition list division.</dd></dl>
-
 ### Ordered List (ol)
 
 1. List Item 1
@@ -48,14 +40,6 @@ Maecenas ornare arcu at mi suscipit, non molestie tortor ultrices. Aenean conval
 - List Item 1
 - List Item 2
 - List Item 3
-
-## Table
-
-| Table Header 1 | Table Header 2 | Table Header 3 |
-| - | - | - |
-| Division 1 | Division 2 | Division 3 |
-| Division 1 | Division 2 | Division 3 |
-| Division 1 | Division 2 | Division 3 |
 
 ## Misc Stuff - abbr, acronym, sub, sup, etc.
 

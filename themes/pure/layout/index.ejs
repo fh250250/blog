@@ -1,8 +1,7 @@
-<ul id="post-list">
+<ul class="post-list">
   <% page.posts && page.posts.forEach(function(post) { %>
     <li class="post-item">
-      <a class="title" href="<%- url_for(post.path) %>"><%- post.title %></a>
-      <span class="date"><%- date(post.date, config.date_format) %></span>
+      <%- partial('_partial/artical', {artical: post, excerpt: true}) %>
     </li>
   <% }) %>
 </ul>

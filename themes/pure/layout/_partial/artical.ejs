@@ -1,0 +1,21 @@
+<div class="artical">
+  <div class="artical-title"><%- artical.title %></div>
+  <div class="artical-meta">
+    <span class="date"><%- date(artical.date, config.date_format) %></span>
+    <% artical.tags.toArray().map(function(tag) {
+      return {
+        name: tag.name,
+        path: tag.path
+      }
+    }).forEach(function(tag) { %>
+      <a class="tag" href="<%- url_for(tag.path) %>"><%- tag.name %></a>
+    <% }) %>
+  </div>
+  <div class="artical-entry">
+    <% if (excerpt) { %>
+      <%- artical.excerpt %>
+    <% } else { %>
+      <%- artical.content %>
+    <% } %>
+  </div>
+</div>

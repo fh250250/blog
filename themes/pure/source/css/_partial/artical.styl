@@ -1,113 +1,143 @@
 .artical
-  h1, h2, h3
-    margin 40px 0
-    font-weight 500
-  h1
-    font-size 22px
-  h2
-    font-size 20px
-  h3
-    font-size 18px
-  p
-    margin 20px 0
-  img
-    max-width 100%
-    height auto
-    display block
-    margin 20px auto
-    box-sizing border-box
-    padding 5px
-    box-shadow 0 0 10px 2px rgba(0, 0, 0, .5)
-  a
-    text-decoration none
-    color #2a2b8e
-    transition all 0.5s
-    &:hover
-      text-shadow 0 0 5px rgba(0 , 0, 0, .5)
-  blockquote
-    padding 20px 20px 20px 40px
-    border 2px solid #0b7587
-    border-left 10px solid #0b7587
-    margin 20px 0
-    p
-      margin 0
-    footer
-      margin-top 30px
-      font-style italic
-      clearfix()
-      cite
-        float right
-  .highlight
-    margin 20px 0
-    background #474949
-    color #d1d9e1
-    padding 10px
-    figcaption
-      clearfix()
-      color #fff
+  line-height 1.6em
+  &-title
+    font-size 25px
+    margin-bottom 10px
+  &-meta
+    margin-bottom 40px
+    .date
+      color $grey
+    .tag
+      text-decoration none
+      color $grey
+      border 1px solid $grey
+      border-radius 5px
+      padding 0 5px
+
+  &-entry
+    h1, h2, h3, h4, h5, h6
       margin-bottom 20px
-      a
-        float right
-        color #fff
-    .gutter
-      color #969896
-      padding-right 20px
-    .code
-      .comment
-      .quote
-        color #969896
-        font-style italic
-
-      .keyword
-      .selector-tag
-      .literal
-      .type
-      .addition
-        color #cc99cc
-
-      .number
-      .selector-attr
-      .selector-pseudo
-        color #f99157
-
-      .string
-      .doctag
-      .regexp
-        color #8abeb7
-
-      .title
-      .name
-      .section
-      .built_in
-        color #b5bd68
-
-      .variable
-      .template-variable
-      .selector-id
-      .class .title
-        color #ffcc66
-
-      .section
-      .name
-      .strong
+      &::before
+        content '#'
+        color $green
         font-weight bold
-
-      .symbol
-      .bullet
-      .subst
-      .meta
-      .link
-        color #f99157
-
-      .deletion
-        color #dc322f
-
-      .formula
-        background #eee8d5
-
-      .attr
-      .attribute
-        color #81a2be
-
-      .emphasis
+    p, img, blockquote, figure, ul, ol
+      margin 0 0 20px 0
+      &:last-child
+        margin-bottom 0
+    h1
+      font-size 24px
+    h2
+      font-size 20px
+    h3, h4, h5, h6
+      font-size 16px
+    img
+      max-width 100%
+      height auto
+      display block
+      margin-left auto
+      margin-right auto
+      box-shadow 0 0 10px 2px rgba(0, 0, 0, .5)
+      border-radius 5px
+    ol
+      list-style decimal inside
+    ul
+      list-style disc inside
+    a
+      color $yellow
+      text-decoration none
+      transition all 0.5s
+      &:hover
+        text-shadow 0 0 5px
+    code
+      color $white
+      background $blue
+      padding 0 10px
+      border-radius 5px
+    blockquote
+      padding 20px 20px 20px 40px
+      border 2px solid $blue
+      border-left 16px solid $blue
+      border-radius 5px
+      p
+        margin 0
+      footer
+        margin-top 30px
         font-style italic
+        clearfix()
+        cite
+          float right
+    .highlight
+      background #474949
+      color #d1d9e1
+      padding 10px
+      border-radius 5px
+      figcaption
+        clearfix()
+        color $green
+        margin-bottom 20px
+        a
+          float right
+          color $green
+      .gutter
+        color #969896
+        padding-right 20px
+      .code
+        .comment
+        .quote
+          color #969896
+          font-style italic
+
+        .keyword
+        .selector-tag
+        .literal
+        .type
+        .addition
+          color #cc99cc
+
+        .number
+        .selector-attr
+        .selector-pseudo
+          color #f99157
+
+        .string
+        .doctag
+        .regexp
+          color #8abeb7
+
+        .title
+        .name
+        .section
+        .built_in
+          color #b5bd68
+
+        .variable
+        .template-variable
+        .selector-id
+        .class .title
+          color #ffcc66
+
+        .section
+        .name
+        .strong
+          font-weight bold
+
+        .symbol
+        .bullet
+        .subst
+        .meta
+        .link
+          color #f99157
+
+        .deletion
+          color #dc322f
+
+        .formula
+          background #eee8d5
+
+        .attr
+        .attribute
+          color #81a2be
+
+        .emphasis
+          font-style italic
