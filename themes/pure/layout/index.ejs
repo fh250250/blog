@@ -1,0 +1,17 @@
+<ul id="post-list">
+  <% page.posts && page.posts.forEach(function(post) { %>
+    <li class="post-item">
+      <a class="title" href="<%- url_for(post.path) %>"><%- post.title %></a>
+      <span class="date"><%- date(post.date, config.date_format) %></span>
+    </li>
+  <% }) %>
+</ul>
+<div id="paginator">
+  <%- paginator({
+    prev_text: '\uf137',
+    next_text: '\uf138',
+    space: '\uf141',
+    end_size: 1,
+    mid_size: 1
+  }) %>
+</div>

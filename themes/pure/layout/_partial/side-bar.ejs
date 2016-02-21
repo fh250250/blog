@@ -1,0 +1,10 @@
+<div id="side-bar">
+  <ul class="menu">
+    <li class="site-title"><a href="<%- url_for('/') %>"><%- config.title %></a></li>
+    <% site.data.menu.forEach(function(item) { %>
+      <li>
+        <a href="<%- item.url %>"><%- item.name %></a>
+      </li>
+    <% }) %>
+  </ul>
+</div>

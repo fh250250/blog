@@ -1,0 +1,17 @@
+<div id="post-detail">
+  <div class="post-title"><%- page.title %></div>
+  <div class="post-meta">
+    <span class="date"><%- date(page.date, config.date_format) %></span>
+    <% page.tags.toArray().map(function(tag) {
+      return {
+        name: tag.name,
+        path: tag.path
+      }
+    }).forEach(function(tag) { %>
+      <a class="tag" href="<%- url_for(tag.path) %>"><%- tag.name %></a>
+    <% }) %>
+  </div>
+  <div class="artical">
+    <%- page.content %>
+  </div>
+</div>
