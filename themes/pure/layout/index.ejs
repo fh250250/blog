@@ -1,7 +1,20 @@
-<ul class="post-list">
+<ul id="post-list">
   <% page.posts && page.posts.forEach(function(post) { %>
     <li class="post-item">
-      <%- partial('_partial/artical', {artical: post, excerpt: true}) %>
+      <div class="post-item-title">
+        <a href="<%- url_for(post.path) %>"><%- post.title %></a>
+      </div>
+      <div class="post-item-meta">
+        <span class="date"><%- date(post.date, config.date_format) %></span>
+        <% post.tags.toArray().map(function(tag) {
+          return {
+            name: tag.name,
+            path: tag.path
+          }
+        }).forEach(function(tag) { %>
+          <a class="fa fa-tag tag" href="<%- url_for(tag.path) %>"><%- tag.name %></a>
+        <% }) %>
+      </div>
     </li>
   <% }) %>
 </ul>

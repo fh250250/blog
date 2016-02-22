@@ -1,12 +1,16 @@
 -
   name: 首页
   url: /
+  icon: fa-home
 -
   name: 标签
   url: /tags
+  icon: fa-tags
 -
   name: Github
   url: https://github.com/fh250250
+  icon: fa-github
 -
   name: RSS
   url: /atom.xml
+  icon: fa-rss

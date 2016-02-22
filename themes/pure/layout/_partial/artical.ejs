@@ -8,14 +8,10 @@
         path: tag.path
       }
     }).forEach(function(tag) { %>
-      <a class="tag" href="<%- url_for(tag.path) %>"><%- tag.name %></a>
+      <a class="fa fa-tag tag" href="<%- url_for(tag.path) %>"><%- tag.name %></a>
     <% }) %>
   </div>
   <div class="artical-entry">
-    <% if (excerpt) { %>
-      <%- artical.excerpt %>
-    <% } else { %>
-      <%- artical.content %>
-    <% } %>
+    <%- artical.content %>
   </div>
 </div>

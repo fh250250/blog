@@ -4,11 +4,9 @@
     <%- partial('_partial/head') %>
   </head>
   <body>
-    <%- partial('_partial/side-bar') %>
     <div id="main">
-      <div id="main-wrap">
-        <%- body %>
-      </div>
+      <%- partial('_partial/header') %>
+      <div id="content-wrap"><%- body %></div>
       <%- partial('_partial/footer') %>
     </div>
   </body>
