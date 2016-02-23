@@ -5,7 +5,7 @@
   <ul class="menu">
     <% site.data.menu.forEach(function(item) { %>
       <li>
-        <a class="fa <%- item.icon %>" href="<%- item.url %>"></a>
+        <a class="fa <%- item.icon %>" href="<%- item.url %>" title="<%- item.name %>"></a>
       </li>
     <% }) %>
   </ul>
