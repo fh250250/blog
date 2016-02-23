@@ -4,4 +4,9 @@
 <%- css(['css/source-code-pro', 'css/font-awesome', 'css/style']) %>
 <%- favicon_tag('favicon.ico') %>
 <%- feed_tag('atom.xml') %>
-<title><%- config.title %></title>
+<title>
+  <%- config.title %>
+  <% if (page.title) { %>
+    | <%- page.title %>
+  <% } %>
+</title>
