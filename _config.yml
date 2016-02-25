@@ -5,8 +5,12 @@
 # Site
 title: Coherence
 subtitle:
-description:
+description: 我的个人博客
 author: Gasper Duan
+keywords:
+  - 博客
+  - 技术
+  - 前端
 language:
 timezone:
 

@@ -2,12 +2,7 @@
   <div class="artical-title"><%- artical.title %></div>
   <div class="artical-meta">
     <span class="date"><%- date(artical.date, config.date_format) %></span>
-    <% artical.tags.toArray().map(function(tag) {
-      return {
-        name: tag.name,
-        path: tag.path
-      }
-    }).forEach(function(tag) { %>
+    <% artical.tags && artical.tags.forEach(function(tag) { %>
       <a class="fa fa-tag tag" href="<%- url_for(tag.path) %>"><%- tag.name %></a>
     <% }) %>
   </div>
