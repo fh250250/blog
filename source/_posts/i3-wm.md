@@ -8,7 +8,7 @@ tags: Linux
 
 [i3](http://i3wm.org/) 是一个 [X Window](http://www.x.org/) 下的一款 [平铺窗口管理器](https://en.wikipedia.org/wiki/Tiling_window_manager)。平铺是它的最大特点，它可以最大程度的利用屏幕上的每一个像素，让你可以眼观六路，耳听八方。你可以使用全键盘操作来轻松的控制你的窗口，极大的提高了工作的效率。当然，如果你的屏幕过小的话还是慎用。
 
-{% asset_img screen-shot.png screen shot %}
+{% asset_img screen-shot.png i3 平铺窗口管理器 %}
 
 官方的定位是高玩与开发者，但如果你想尝试一下平铺的魅力的话，也可以跟随本文体验一下（当然必须是 Linux 用户咯）。
 
