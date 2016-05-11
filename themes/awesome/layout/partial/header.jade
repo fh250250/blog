@@ -1,1 +1,6 @@
-header.site-header= config.title
+header.site-header
+  .site-title
+    a(href=url_for('/'))= config.title
+  .menu
+    each item in site.data.menu
+      a.menu-item(href=url_for(item.url))= item.name

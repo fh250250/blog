@@ -1,4 +1,1 @@
-footer.site-footer
-  | ©
-  = date(Date.now(), 'YYYY')
-  = config.author
+footer.site-footer= '©' + date(Date.now(), 'YYYY') + ' ' + config.author
