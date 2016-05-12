@@ -12,5 +12,18 @@ extends partial/layout
 block main
   .posts-index
     - page.posts && page.posts.forEach(post => {
-        .post-item= post.title
+        .post-item
+          .title
+            a(href=url_for(post.path))= post.title
+          .meta
+            .date
+              i.icon.ion-calendar
+              = date(post.date, ` ${config.date_format} ${config.time_format} `)
+          .excerpt= truncate(strip_html(post.content), { length: 200 })
+          .tags
+            - post.tags && post.tags.forEach(tag => {
+              a(href=url_for(tag.path))
+                i.icon.ion-pricetag
+                = tag.name
+            - })
     - })
