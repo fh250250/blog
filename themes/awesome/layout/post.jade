@@ -1,4 +1,16 @@
 extends partial/layout
 
 block main
-  .content!= page.content
+  .post-detail
+    .post-title= page.title
+    .post-meta
+      .date
+        i.icon.ion-calendar
+        = date(page.date, ` ${config.date_format} `)
+      .tags
+        - page.tags && page.tags.forEach(tag => {
+          a(href=url_for(tag.path))
+            i.icon.ion-pound
+            = tag.name
+        - })
+    .post-content!= page.content

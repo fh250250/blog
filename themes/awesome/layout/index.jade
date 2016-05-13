@@ -18,12 +18,12 @@ block main
           .meta
             .date
               i.icon.ion-calendar
-              = date(post.date, ` ${config.date_format} ${config.time_format} `)
+              = date(post.date, ` ${config.date_format} `)
           .excerpt= truncate(strip_html(post.content), { length: 200 })
           .tags
             - post.tags && post.tags.forEach(tag => {
               a(href=url_for(tag.path))
-                i.icon.ion-pricetag
+                i.icon.ion-pound
                 = tag.name
             - })
     - })
