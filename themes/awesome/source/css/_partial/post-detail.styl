@@ -14,44 +14,21 @@
       color #555
     .tags
       a
-        display inline-block
         margin-right 10px
         border-bottom 1px solid #999
         transition all .3s
         &:last-child
           margin-right 0
         &:hover
-          border-bottom-color #333
+          color #000
+          border-bottom-color #000
         .icon
           margin-right 2px
   .post-content
-    img
-      max-width 100%
-      height auto
-      display block
-      margin 0 auto
-      box-shadow 0 0 10px 2px rgba(0, 0, 0, .5)
-
-
-
-  &-entry
-    h1, h2, h3, h4, h5, h6
-      margin-bottom 20px
-      border-bottom 1px solid $grey
-      &::before
-        content '# '
-        color $green
-        font-weight bold
-    p, img, blockquote, figure, ul, ol
+    > *
       margin 0 0 20px 0
       &:last-child
         margin-bottom 0
-    h1
-      font-size 24px
-    h2
-      font-size 20px
-    h3, h4, h5, h6
-      font-size 16px
     img
       max-width 100%
       height auto
@@ -59,45 +36,40 @@
       margin-left auto
       margin-right auto
       box-shadow 0 0 10px 2px rgba(0, 0, 0, .5)
-    ol
-      list-style decimal inside
-    ul
-      list-style disc inside
-    a
-      color $yellow
-      text-decoration none
-      transition all 0.5s
-      &:hover
-        text-shadow 0 0 10px
-    code
-      color $white
-      background $blue
-      padding 0 10px
-      border-radius 5px
+    h1
+      font-size 24px
+    h2, h3, h4, h5, h6
+      font-size 20px
     blockquote
-      padding 20px 20px 20px 40px
-      border 2px solid $blue
-      border-left 16px solid $blue
-      p
+      font-style italic
+      font-weight 100
+      color #555
+      background #fafafa
+      padding 20px
+      border-left 2px solid #333
+      > *
         margin 0
-      footer
-        margin-top 30px
-        font-style italic
-        clearfix()
-        cite
-          float right
+    code
+      color #555
+      background #eee
+      padding 2px 4px
+      border-radius 4px
+    a
+      transition all 0.5s
+      border-bottom 1px solid #999
+      &:hover
+        color #000
+        border-bottom-color #000
+    ol, ul
+      padding-left 20px
     .highlight
       background #474949
       color #d1d9e1
       padding 10px
       overflow-x auto
-      figcaption
-        clearfix()
-        color $green
-        margin-bottom 20px
-        a
-          float right
-          color $green
+      pre
+        margin 0
+        font-family "Source Code Pro", monospace
       .gutter
         color #969896
         padding-right 20px
