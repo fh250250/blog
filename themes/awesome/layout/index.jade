@@ -19,7 +19,11 @@ block main
             .date
               i.icon.ion-calendar
               = date(post.date, ` ${config.date_format} `)
-          .excerpt= truncate(strip_html(post.content), { length: 200 })
+          .excerpt
+            if post.excerpt
+              = strip_html(post.excerpt)
+            else
+              = truncate(strip_html(post.content), { length: 200 })
           .tags
             - post.tags && post.tags.forEach(tag => {
               a(href=url_for(tag.path))

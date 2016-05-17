@@ -9,6 +9,8 @@ tags:
 
 废话不多说，先来张图直观的体验一下。
 
+<!-- more -->
+
 {% asset_img my-conky.png 我的 conky 配置 %}
 
 以上是我的 [conky] 配置，有没有点科幻电影的感觉。
