@@ -14,3 +14,15 @@ block main
             = tag.name
         - })
     .post-content!= page.content
+    .post-nav
+      .prev
+        if page.prev
+          a(href=url_for(page.prev.path))
+            i.icon.ion-chevron-left &nbsp;
+            = page.prev.title
+      .next
+        if page.next
+          a(href=url_for(page.next.path))
+            = page.next.title
+            | &nbsp;
+            i.icon.ion-chevron-right
