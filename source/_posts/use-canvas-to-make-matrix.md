@@ -3,7 +3,6 @@ title: 用 canvas 实现黑客帝国中的数码雨
 date: 2016-02-26 15:13:09
 tags:
   - Canvas
-  - JS
 ---
 
 > 你有过这种感觉没有，就是你吃不准自己是醒着还是在做梦。
@@ -11,6 +10,76 @@ tags:
 {% asset_img 黑客帝国.jpg 黑客帝国 %}
 
 《黑客帝国》这部经典科幻电影相信大家都看过，而其中的数码雨效果也是让人印象深刻。今天，我们就用 `Canvas` 来实现这个数码雨效果。
+
+先看一下效果，如下。
+
+<canvas id="matrix" style="display: block; margin: 0 auto"></canvas>
+<script>
+var Matrix = function(canvas) {
+  this.opt = {
+    bgcolor: '#00303e',
+    opacity: 0.1,
+    font: {
+      size: 10,
+      family: 'monospace',
+      color: '#a6e22e'
+    },
+    speed: 100
+  };
+  this.canvas = canvas;
+  this.ctx = this.canvas.getContext('2d');
+  this.intervalId = null;
+  this.init();
+  this.addEvents();
+};
+Matrix.prototype.init = function() {
+  this.canvas.width = this.canvas.parentElement.clientWidth;
+  this.canvas.height = this.canvas.width / 2;
+  this.clear(this.opt.bgcolor);
+  clearInterval(this.intervalId);
+  var count = Math.round(this.canvas.width / this.opt.font.size);
+  this.textRain = new Array();
+  for (var i = 0; i < count; i++) {
+    this.textRain.push(Math.round(Math.random() * -1e3));
+  }
+  this.rain();
+};
+Matrix.prototype.addEvents = function() {
+  var that = this;
+  window.addEventListener('resize', function() {
+    that.init();
+  });
+};
+Matrix.prototype.clear = function(color) {
+  this.ctx.fillStyle = color;
+  this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+};
+Matrix.prototype.toRGBA = function(color, alpha) {
+  var r = Number('0x' + color.slice(1, 3));
+  var g = Number('0x' + color.slice(3, 5));
+  var b = Number('0x' + color.slice(5, 7));
+
+  return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
+};
+Matrix.prototype.draw = function() {
+  this.clear(this.toRGBA(this.opt.bgcolor, this.opt.opacity));
+  this.ctx.fillStyle = this.opt.font.color;
+  this.ctx.font = this.opt.font.size + 'px ' + this.opt.family;
+  var that = this;
+  this.textRain.forEach(function(cur, idx, arr) {
+    var text = String.fromCharCode(Math.round(1e3 + Math.random() * 33));
+    that.ctx.fillText(text, idx * that.opt.font.size, cur);
+    arr[idx] = (cur > that.canvas.height + Math.random() * 1e4) ? 0 : cur + that.opt.font.size;
+  });
+};
+Matrix.prototype.rain = function() {
+  var that = this;
+  this.intervalId = setInterval(function() {
+    that.draw();
+  }, that.opt.speed);
+};
+var matrix = new Matrix(document.querySelector('#matrix'));
+</script>
 
 # 创建 Canvas 标签
 Canvas 是 HTML5 新增的一个元素，让我们可以使用 Javascript 来绘制图形，处理图片，制作动画与游戏，甚至还可以使用 WebGL 来创建 3D 应用。好了， 我们来看看兼容性。
@@ -183,76 +252,6 @@ Matrix.prototype.rain = function() {
 ```js
 var matrix = new Matrix(document.querySelector('#matrix'));
 ```
-
-看看最终的效果，如下。
-
-<canvas id="matrix" style="display: block; margin: 0 auto"></canvas>
-<script>
-var Matrix = function(canvas) {
-  this.opt = {
-    bgcolor: '#00303e',
-    opacity: 0.1,
-    font: {
-      size: 10,
-      family: 'monospace',
-      color: '#a6e22e'
-    },
-    speed: 100
-  };
-  this.canvas = canvas;
-  this.ctx = this.canvas.getContext('2d');
-  this.intervalId = null;
-  this.init();
-  this.addEvents();
-};
-Matrix.prototype.init = function() {
-  this.canvas.width = this.canvas.parentElement.clientWidth;
-  this.canvas.height = this.canvas.width / 2;
-  this.clear(this.opt.bgcolor);
-  clearInterval(this.intervalId);
-  var count = Math.round(this.canvas.width / this.opt.font.size);
-  this.textRain = new Array();
-  for (var i = 0; i < count; i++) {
-    this.textRain.push(Math.round(Math.random() * -1e3));
-  }
-  this.rain();
-};
-Matrix.prototype.addEvents = function() {
-  var that = this;
-  window.addEventListener('resize', function() {
-    that.init();
-  });
-};
-Matrix.prototype.clear = function(color) {
-  this.ctx.fillStyle = color;
-  this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-};
-Matrix.prototype.toRGBA = function(color, alpha) {
-  var r = Number('0x' + color.slice(1, 3));
-  var g = Number('0x' + color.slice(3, 5));
-  var b = Number('0x' + color.slice(5, 7));
-
-  return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
-};
-Matrix.prototype.draw = function() {
-  this.clear(this.toRGBA(this.opt.bgcolor, this.opt.opacity));
-  this.ctx.fillStyle = this.opt.font.color;
-  this.ctx.font = this.opt.font.size + 'px ' + this.opt.family;
-  var that = this;
-  this.textRain.forEach(function(cur, idx, arr) {
-    var text = String.fromCharCode(Math.round(1e3 + Math.random() * 33));
-    that.ctx.fillText(text, idx * that.opt.font.size, cur);
-    arr[idx] = (cur > that.canvas.height + Math.random() * 1e4) ? 0 : cur + that.opt.font.size;
-  });
-};
-Matrix.prototype.rain = function() {
-  var that = this;
-  this.intervalId = setInterval(function() {
-    that.draw();
-  }, that.opt.speed);
-};
-var matrix = new Matrix(document.querySelector('#matrix'));
-</script>
 
 你可以试着改变一下窗口的大小，可以看到我们的 `Matrix Rain` 是自适应的。
 
