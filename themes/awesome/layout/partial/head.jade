@@ -4,14 +4,12 @@ meta(name="viewport", content="initial-scale=1, maximum-scale=1, user-scalable=n
 != css(['css/normalize', 'css/source-code-pro', 'css/ionicons', 'css/style'])
 != feed_tag('atom.xml')
 
-title= page.title ? page.title + ' | ' + config.title : config.title
+title= page.title ? `${page.title} | ${config.title}` : config.title
 
 -
   var keywords = config.keywords
   if (page.tags) {
-    keywords = keywords.concat(page.tags.map(function (tag) {
-      return tag.name
-    }))
+    keywords = keywords.concat(page.tags.map(tag => tag.name))
   }
 meta(name="keywords", content=keywords.join(','))
 
