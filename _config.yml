@@ -51,3 +51,8 @@ theme: awesome
 
 stylus:
   compress: true
+
+deploy:
+  type: git
+  repo: git@git.coding.net:pending/pending.git
+  branch: coding-pages
